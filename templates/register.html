@@ -1,0 +1,16 @@
+<div class="container">
+    <div ng-if='loginfailed'>
+        <strong> Invalid username or password</strong>
+    </div>
+    <form class="form-horizontal" role="form" ng-submit="register(username, password)">
+        <div class="form-group">
+            <label>User:</label>
+            <input class="form-control" type="text" ng-model="username" required>
+        </div>
+          <div class="form-group">
+            <label>Password:</label>
+            <input class="form-control" type="password" ng-model="password" required>
+        </div>   
+        <input class="btn btn-success btn-lg btn-block"  type="submit" value="Register">
+    </form>
+</div>

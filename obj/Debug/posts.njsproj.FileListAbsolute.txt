@@ -1,0 +1,2 @@
+D:\Users\s_moo\dev\mean\posts\obj\Debug\posts.njsprojResolveAssemblyReference.cache
+D:\Users\s_moo\dev\mean\posts\bin\Microsoft.NodejsTools.WebRole.dll
