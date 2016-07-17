@@ -99,6 +99,7 @@ router.post('/api/user/add',function(req, res)
     bcrypt.hash(req.body.password,10,function(err,hash) 
     {
         user.password = hash;
+        console.log("Adding user %s, $s", user.username, user.password)        
         user.save(
             function(err) 
             {
