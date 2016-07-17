@@ -14,7 +14,7 @@ server.use(express.static(__dirname + '/templates'))
 server.get('/', function (req,res)
 {
     var layouts = path.join(__dirname + '/layouts')
-    res.sendFile(layouts + '/app.html')
+    res.sendFile(__dirname + '/app.html')
 })
 server.use(require(__dirname + "/controllers/api/static"))
 var server = server.listen(process.env.PORT || 8001,serverInit)
