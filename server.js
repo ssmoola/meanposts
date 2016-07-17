@@ -17,7 +17,7 @@ server.get('/', function (req,res)
     res.sendFile(layouts + '/app.html')
 })
 server.use(require(__dirname + "/controllers/api/static"))
-var server = server.listen(8001,serverInit)
+var server = server.listen(process.env.PORT || 8001,serverInit)
 ws.connect(server)
 
 function serverInit()
