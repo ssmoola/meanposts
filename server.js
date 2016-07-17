@@ -26,4 +26,3 @@ function serverInit()
     var port = server.address().port;
     console.log("Started server at http://%s:%s", host, port)
 }
-console.log('express')
