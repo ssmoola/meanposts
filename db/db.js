@@ -2,11 +2,11 @@
 ///<reference path="../typings/mongoose/mongoose.d.ts" />
 var mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost/social', function(err)
+mongoose.connect('mongodb://admin:pass@ds023455.mlab.com:23455/social', function(err)
 {
     if (err) {
         console.log("DB connect error")
-        throw next(err)
+        throw err
     }
     console.log("DB connected")
 })

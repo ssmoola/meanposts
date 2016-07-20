@@ -14,7 +14,7 @@ var ws=require('../../ws/WebSocket')
 var router=require('express').Router()
 
 
-router.get('/api/posts', function(req,res)
+router.get('/api/posts', function(req,res,next)
     {
         Post.find(function(err,posts)
         {
@@ -25,7 +25,7 @@ router.get('/api/posts', function(req,res)
         })
     }
 )
-router.get('/api/posts/:username', function(req,res)
+router.get('/api/posts/:username', function(req,res,next)
     {
         Post.find({username:req.params.username}).exec(function(err,posts)
         {
@@ -37,7 +37,7 @@ router.get('/api/posts/:username', function(req,res)
     }
 )
 
-router.post('/api/post', function(req,res)
+router.post('/api/post', function(req,res,next)
     {
         console.log('post reseived')
         console.log(req.auth.username)
@@ -60,7 +60,7 @@ router.post('/api/post', function(req,res)
     }
 )
 
-router.post('/api/user/session', function(req,res)
+router.post('/api/user/session', function(req,res,next)
 {
     User.findOne({username:req.body.username}).select('password').select('username').exec(function(err,user)
     {
@@ -93,7 +93,7 @@ router.post('/api/user/session', function(req,res)
         })
     })
 })
-router.post('/api/user/add',function(req, res)
+router.post('/api/user/add',function(req, res,next)
 {
     var user = User({username:req.body.username});
     bcrypt.hash(req.body.password,10,function(err,hash) 
@@ -112,7 +112,7 @@ router.post('/api/user/add',function(req, res)
     })
  })
 
- router.get('/api/user/info', function(req, res)
+ router.get('/api/user/info', function(req, res,next)
     {
         var token = req.headers['x-auth'];
         var auth = jwt.decode(token, config.key);
